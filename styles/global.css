@@ -1,0 +1,127 @@
+@font-face {
+    font-family: 'Roboto';
+    src: url('../assets/fonts/Roboto-Regular.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Roboto';
+    src: url('../assets/fonts/Roboto-Bold.ttf') format('truetype');
+    font-weight: bold;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Roboto';
+    src: url('../assets/fonts/Roboto-Light.ttf') format('truetype');
+    font-weight: lighter;
+    font-style: normal;
+}
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Roboto', sans-serif;
+}
+
+body{
+    min-height: 100vh;
+}
+
+main{
+    min-height: calc(100vh - 64px - 64px);
+}
+
+header{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: #007488;
+}
+
+.logo{
+    display: flex;
+    align-items: center;
+}
+
+.logo img{
+    width: 64px;
+    padding: 5px;
+    filter: drop-shadow(1px 0 0 white) 
+        drop-shadow(0 1px 0 white)
+        drop-shadow(-1px 0 0 white) 
+        drop-shadow(0 -1px 0 white);
+}
+
+#logo-text{
+    color: white;
+    font-size: 2rem;
+    font-weight: light;
+    padding: 5px;
+    text-decoration: none;
+}
+
+nav ul{
+    display: flex;
+    list-style-type: none;
+}
+
+nav li{
+    padding: 10px;
+}
+
+nav a{
+    color: white;
+    font-size: 1.2rem;
+    font-weight: bold;
+    text-decoration: none;
+}
+
+nav a:hover{
+    color: rgb(0, 225, 255);
+}
+
+footer {
+    position: relative;
+    bottom: 0;
+    width: 100%;
+    height: 64px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    background-color: #007488;  
+}
+
+footer p{
+    color: white;
+    font-size: 1.2rem;
+    font-weight: bold;
+    padding: 20px;
+}
+
+@media screen and (max-width: 768px) {
+    header {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .logo img {
+        width: 48px;
+    }
+
+    #logo-text {
+        font-size: 1.5rem;
+    }
+
+    nav ul {
+        flex-direction: row;
+    }
+
+    nav li {
+        padding: 5px;
+    }
+}

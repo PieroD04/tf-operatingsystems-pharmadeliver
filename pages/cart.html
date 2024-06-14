@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PharmaDeliver</title>
+    <link rel="stylesheet" href="../styles/cart.css">
+    <link rel="stylesheet" href="../styles/global.css">
+    
+</head>
+<body>
+    <header>
+        <div class="logo">   
+            <img src="../assets/images/logo.webp" width="50px" alt="PharmaDeliver Logo">
+            <span>
+                <a id="logo-text" href="index.html">PharmaDeliver</a>
+            </span>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="index.html">Inicio</a></li>
+                <li><a href="catalogue.html">Catalogo</a></li>
+                <li><a href="cart.html">Carrito</a></li>
+                <li><a href="orders.html">Pedidos</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <h1>Tu carrito de compra</h1>
+        <shoppingcart></shoppingcart>
+        <orderbutton></orderbutton>
+
+    </main>
+    <footer>
+        <p>&copy; PharmaDeliver 2024 - Todos los derechos reservados</p>
+    </footer>
+    <script type="module" src="../scripts/visualizeCart.js"></script>
+    <script type="module" src="../scripts/order.js"></script>
+</body>
+</html>

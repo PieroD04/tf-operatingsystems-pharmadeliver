@@ -1,0 +1,61 @@
+h1{
+    font-size: 3rem;
+    text-align: center;
+    margin-top: 20px;
+}
+
+section{
+    margin: 20px 0;
+}
+
+section h2{
+    font-size: 2rem;
+    margin: 20px 0;
+    text-align: center;
+    color: #007488;
+}
+
+.cards {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+}
+
+.card {
+    display: flex;
+    flex-direction: column;
+    flex: 0 1 300px;
+    text-align: center;
+    padding: 20px;
+    border: 1px solid #007488;
+    border-radius: 10px;
+}
+
+.card img{
+    width: 100px;
+    height: auto;
+    margin: 0 auto;
+}
+
+.quantity-input{
+    width: 30px;
+    height: 30px;
+    text-align: center;  
+    margin: 0 auto;  
+}
+
+.add-to-cart{
+    background-color: #007488;
+    width: 60%;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    margin: 10px auto;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.add-to-cart:hover{
+    background-color: rgb(2, 176, 199);
+}

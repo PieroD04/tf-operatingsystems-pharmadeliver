@@ -1,0 +1,81 @@
+h1{
+    font-size: 3rem;
+    text-align: center;
+    margin: 20px 0;
+}
+
+orderbutton{
+    display: flex; /* Crea un contenedor flexible para los elementos de la lista de compras */
+    justify-content: center; /* Centra los elementos de la lista de compras horizontalmente */
+
+}
+
+orderbutton button{
+    font-size: 20px; /* Tamaño de fuente más grande para el botón de ordenar */
+    padding: 10px 20px; /* Añade relleno alrededor del texto dentro del botón */
+    background-color: #007488; /* Color de fondo para el botón de ordenar */
+    color: white; /* Color de texto para el botón de ordenar */
+    border: none; /* Elimina el borde del botón */
+    cursor: pointer; /* Cambia el cursor a una mano cuando se pasa sobre el botón */
+    margin: 20px 0;
+}
+
+orderbutton button:hover {
+    background-color: rgb(2, 176, 199); /* Oscurece el botón de ordenar al pasar el mouse */
+}
+
+shoppingcart {
+    display: flex; /* Crea un contenedor flexible para los elementos de la lista de compras */
+    flex-direction: column; /* Alinea los elementos de la lista de compras en una columna */
+    align-items: center; /* Centra los elementos de la lista de compras horizontalmente */
+}
+
+table {
+    width: 100%; /* Hace que la tabla ocupe todo el ancho disponible */
+    border-collapse: collapse; /* Elimina el espacio entre los bordes de las celdas */
+    table-layout: fixed; /* Ayuda a manejar el ancho de las columnas de manera más predecible */
+    margin-bottom: 20px;
+}
+
+th, td {
+    text-align: left; /* Alinea el texto a la izquierda */
+    padding: 12px; /* Añade un relleno dentro de las celdas para más espacio */
+    border-bottom: 1px solid #ddd; /* Añade un borde inferior a cada celda para separar las filas */
+}
+
+th {
+    background-color: #f2f2f2; /* Color de fondo para los encabezados de la tabla */
+    font-size: 20px; /* Tamaño de fuente más grande para los encabezados */
+}
+
+td {
+    font-size: 18px; /* Tamaño de fuente para el contenido de la tabla */
+}
+
+td img {
+    width: 100px; /* Ajusta el ancho de las imágenes */
+    height: auto; /* Mantiene la proporción de las imágenes */
+}
+
+input[type="number"] {
+    width: 80px; /* Ajusta el ancho de los inputs de cantidad */
+    padding: 5px; /* Añade un poco de relleno dentro del input */
+    font-size: 14px; /* Ajusta el tamaño de fuente dentro del input */
+}
+
+button {
+    padding: 5px 10px; /* Añade relleno alrededor del texto dentro del botón */
+    background-color: #f44336; /* Color de fondo para el botón de eliminar */
+    color: white; /* Color de texto para el botón de eliminar */
+    border: none; /* Elimina el borde del botón */
+    cursor: pointer; /* Cambia el cursor a una mano cuando se pasa sobre el botón */
+}
+
+button:hover {
+    background-color: #d32f2f; /* Oscurece el botón de eliminar al pasar el mouse */
+}
+
+total{
+    font-size: 24px; /* Tamaño de fuente más grande para el total */
+    text-align: right; /* Alinea el total a la derecha */
+}
