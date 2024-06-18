@@ -5,13 +5,17 @@ async function fetchOrders() {
     const ordersdetailUrl = 'http://localhost:3000/detalle_pedidos';
     const productsUrl = 'http://localhost:3000/productos';
     const clientsUrl = 'http://localhost:3000/clientes';
+    const deliveryMenUrl = 'http://localhost:3000/repartidores';
+    const usersUrl = 'http://localhost:3000/usuarios';
 
     try {
-        const [ordersResponse, ordersdetailResponse, productsResponse, clientsResponse] = await Promise.all([
+        const [ordersResponse, ordersdetailResponse, productsResponse, clientsResponse, deliveryMenResponse, usersResponse] = await Promise.all([
             fetch(ordersUrl),
             fetch(ordersdetailUrl),
             fetch(productsUrl),
-            fetch(clientsUrl)
+            fetch(clientsUrl),
+            fetch(deliveryMenUrl),
+            fetch(usersUrl)
         ]);
 
         let orders = await ordersResponse.json();
@@ -19,6 +23,8 @@ async function fetchOrders() {
         let details = [];
         const products = await productsResponse.json();
         const clients = await clientsResponse.json();
+        const deliveryMen = await deliveryMenResponse.json();
+        const users = await usersResponse.json();
 
         // Step 2: Filter with Client ID (from localStorage)
         if(!localStorage.getItem('userInfo')) {
@@ -30,18 +36,18 @@ async function fetchOrders() {
         const clientId = clients.find(client => client.id_usuario === userId).id;
         orders = orders.filter(order => order.id_cliente === clientId);
         orders.forEach(order => {
-            details = ordersdetail.filter(detail => detail.id_pedido === order.id);
+            details = details.concat(ordersdetail.filter(detail => detail.id_pedido === order.id));
         });
 
         // Step 3: Generate HTML Page
-        generatePage(orders, details, products);
+        generatePage(orders, details, products, deliveryMen, users);
         
     } catch (error) {
         console.error('Error fetching data:', error);
     }
 }
 
-function generatePage(orders, details, products) {
+function generatePage(orders, details, products, deliveryMen, users) {
     // if there are no orders
     if (orders.length === 0) {
         const mainElement = document.querySelector('pedidos');
@@ -60,29 +66,34 @@ function generatePage(orders, details, products) {
             hour: '2-digit',
             minute: '2-digit'
         });
+        let deliveryMan = deliveryMen.find(delivery => delivery.id === order.id_repartidor);
+        let deliveryUsername = users.find(user => user.id === deliveryMan.id_usuario).nombre;
         const orderSection = document.createElement('section');
         orderSection.innerHTML = `<h2>Pedido #${order.id}</h2>
         <p>Fecha: ${formattedDate}</p>
         <p>Dirección de entrega: ${order.direccion_entrega}</p>
-        <p>Estado: ${order.estado}</p>`;
+        <p>Estado: ${order.estado}</p>
+        <p>Repartidor: ${deliveryUsername}</p>`;
 
 
         const cardsWrapper = document.createElement('div');
         cardsWrapper.className = 'cards';
         let totalPrice = 0;
 
-        // diplay in a list the products of the order
+        // diplay list of products of the order
         details.forEach(detail => {
-            const product = products.find(product => product.id === detail.id_producto);
-            const productCard = document.createElement('div');
-            productCard.innerHTML = `
-                <h3>${product.nombre}</h3>
-                <p>Cantidad: ${detail.cantidad}</p>
-                <p>Precio unitario: S/.${product.precio}</p>
-            `;
-            totalPrice += detail.cantidad * product.precio;
+            if (order.id === detail.id_pedido) {
+                const product = products.find(product => product.id === detail.id_producto);
+                const productCard = document.createElement('div');
+                productCard.innerHTML = `
+                    <h3>${product.nombre}</h3>
+                    <p>Cantidad: ${detail.cantidad}</p>
+                    <p>Precio unitario: S/.${product.precio}</p>
+                `;
+                totalPrice += detail.cantidad * product.precio;
 
-            cardsWrapper.appendChild(productCard);
+                cardsWrapper.appendChild(productCard);
+            }
         }
         );
 

@@ -19,16 +19,26 @@ document.addEventListener('DOMContentLoaded', function() {
         return localStorage.getItem('userInfo') !== null;
     }
 
-    function createOrder() {
+    async function createOrder() {
         const direccionEntrega = prompt("Por favor, ingresa tu dirección de entrega:");
         if (direccionEntrega) {
+            const clientsResponse = await fetch('http://localhost:3000/clientes');
+            const clients = await clientsResponse.json();
             const userInfo = JSON.parse(localStorage.getItem('userInfo'));
+            const clientId = clients.find(client => client.id_usuario === userInfo.id).id;
+            
+
+            const deliveryMenResponse = await fetch('http://localhost:3000/repartidores');
+            const deliveryMen = await deliveryMenResponse.json();
+            const deliveryMan = deliveryMen[Math.floor(Math.random() * deliveryMen.length)];
+            const deliveryManId = deliveryMan.id;
+
             const pedido = {
                 estado: "Pendiente",
                 direccion_entrega: direccionEntrega,
                 fecha_pedido: new Date().toISOString(),
-                id_cliente: userInfo.id,
-                id_repartidor: 1 // Asumimos el id del repartidor
+                id_cliente: clientId,
+                id_repartidor: deliveryManId // Asumimos el id del repartidor
             };
 
             fetch('http://localhost:3000/pedidos', {
@@ -46,7 +56,7 @@ document.addEventListener('DOMContentLoaded', function() {
                     const detallePedido = {
                         id_producto: producto.id,
                         id_pedido: data.id, // Asumiendo que el backend devuelve el id del pedido creado
-                        cantidad: producto.cantidad,
+                        cantidad: producto.quantity,
                         precio_unitario: producto.precio
                     };
 
@@ -64,6 +74,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
                 alert('Pedido creado con éxito');
                 localStorage.removeItem('cart'); // Limpiar el carrito
+                
             })
             .catch(error => console.error('Error al crear pedido:', error));
         } else {

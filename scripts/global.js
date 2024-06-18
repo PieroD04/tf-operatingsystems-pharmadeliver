@@ -5,7 +5,7 @@ function checkUserStatus() {
     if (user) {
         // Mostrar mensaje de bienvenida
         var userInfo = JSON.parse(user);
-        welcomeMessage.textContent = 'Bienvenid@, ' + userInfo.nombre + '!';
+        welcomeMessage.textContent = '¡Bienvenid@, ' + userInfo.nombre + '!';
         // Si un usuario inició sesión, mostrar botón de cerrar sesión
         authButton.textContent = 'Cerrar Sesión';
         authButton.onclick = function() {

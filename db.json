@@ -83,6 +83,22 @@
       "dni": "44332211",
       "contrasena": "hashedpassword4",
       "telefono": "+51912348765"
+    },
+    {
+      "nombre": "Piero Corral",
+      "correo": "pierod0411@gmail.com",
+      "dni": "76156167",
+      "contrasena": "hashedpassword5",
+      "telefono": "+51254672141",
+      "id": 5
+    },
+    {
+      "nombre": "Sebastian Puente",
+      "correo": "sebastian103@gmail.com",
+      "dni": "76130067",
+      "contrasena": "hashedpassword6",
+      "telefono": "+51254672141",
+      "id": 6
     }
   ],
   "clientes": [
@@ -97,6 +113,10 @@
     {
       "id": 3,
       "id_usuario": 4
+    },
+    {
+      "id_usuario": 5,
+      "id": 4
     }
   ],
   "repartidores": [
@@ -104,6 +124,11 @@
       "id": 1,
       "licencia": "Q11223344",
       "id_usuario": 3
+    },
+    {
+      "id": 2,
+      "licencia": "Q76130067",
+      "id_usuario": 6
     }
   ],
   "farmacias": [
@@ -148,6 +173,54 @@
       "id_cliente": 4,
       "id_repartidor": 1,
       "id": 2
+    },
+    {
+      "estado": "Pendiente",
+      "direccion_entrega": "assafsa",
+      "fecha_pedido": "2024-06-18T21:15:49.933Z",
+      "id_cliente": 1,
+      "id_repartidor": 1,
+      "id": 3
+    },
+    {
+      "estado": "Pendiente",
+      "direccion_entrega": "asfasf",
+      "fecha_pedido": "2024-06-18T21:21:11.146Z",
+      "id_cliente": 1,
+      "id_repartidor": 2,
+      "id": 4
+    },
+    {
+      "estado": "Pendiente",
+      "direccion_entrega": "Jr Puerto Mar 921",
+      "fecha_pedido": "2024-06-18T21:36:46.366Z",
+      "id_cliente": 1,
+      "id_repartidor": 1,
+      "id": 5
+    },
+    {
+      "estado": "Pendiente",
+      "direccion_entrega": "Av. Lima 850",
+      "fecha_pedido": "2024-06-18T22:35:55.864Z",
+      "id_cliente": 2,
+      "id_repartidor": 2,
+      "id": 6
+    },
+    {
+      "estado": "Pendiente",
+      "direccion_entrega": "Jr. Puno 123",
+      "fecha_pedido": "2024-06-18T22:37:17.756Z",
+      "id_cliente": 2,
+      "id_repartidor": 1,
+      "id": 7
+    },
+    {
+      "estado": "Pendiente",
+      "direccion_entrega": "Av. Aviación 560",
+      "fecha_pedido": "2024-06-18T23:08:01.734Z",
+      "id_cliente": 4,
+      "id_repartidor": 2,
+      "id": 8
     }
   ],
   "detalle_pedidos": [
@@ -178,6 +251,97 @@
       "id_pedido": 2,
       "precio_unitario": 12.5,
       "id": 4
+    },
+    {
+      "cantidad": 1,
+      "id_producto": 1,
+      "id_pedido": 3,
+      "precio_unitario": 12.5,
+      "id": 5
+    },
+    {
+      "cantidad": 3,
+      "id_producto": 4,
+      "id_pedido": 3,
+      "precio_unitario": 10,
+      "id": 6
+    },
+    {
+      "id_producto": 2,
+      "id_pedido": 4,
+      "cantidad": 2,
+      "precio_unitario": 8.75,
+      "id": 7
+    },
+    {
+      "id_producto": 3,
+      "id_pedido": 4,
+      "cantidad": 1,
+      "precio_unitario": 25,
+      "id": 8
+    },
+    {
+      "id_producto": 2,
+      "id_pedido": 5,
+      "cantidad": 1,
+      "precio_unitario": 8.75,
+      "id": 9
+    },
+    {
+      "id_producto": 3,
+      "id_pedido": 5,
+      "cantidad": 1,
+      "precio_unitario": 25,
+      "id": 10
+    },
+    {
+      "id_producto": 1,
+      "id_pedido": 6,
+      "cantidad": 11,
+      "precio_unitario": 12.5,
+      "id": 11
+    },
+    {
+      "id_producto": 2,
+      "id_pedido": 6,
+      "cantidad": 1,
+      "precio_unitario": 8.75,
+      "id": 12
+    },
+    {
+      "id_producto": 1,
+      "id_pedido": 7,
+      "cantidad": 1,
+      "precio_unitario": 12.5,
+      "id": 13
+    },
+    {
+      "id_producto": 2,
+      "id_pedido": 7,
+      "cantidad": 1,
+      "precio_unitario": 8.75,
+      "id": 14
+    },
+    {
+      "id_producto": 4,
+      "id_pedido": 7,
+      "cantidad": 1,
+      "precio_unitario": 10,
+      "id": 15
+    },
+    {
+      "id_producto": 3,
+      "id_pedido": 7,
+      "cantidad": 1,
+      "precio_unitario": 25,
+      "id": 16
+    },
+    {
+      "id_producto": 2,
+      "id_pedido": 8,
+      "cantidad": 1,
+      "precio_unitario": 8.75,
+      "id": 17
     }
   ]
 }

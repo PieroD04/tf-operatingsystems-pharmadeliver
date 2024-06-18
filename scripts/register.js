@@ -35,8 +35,21 @@ document.getElementById('registerForm').addEventListener('submit', function(e) {
         body: JSON.stringify(user)
     })
     .then(response => response.json())
-    .then(
+    .then(data => {
+        const cliente = {
+            id_usuario: data.id // Asumiendo que el backend devuelve el id del usuario creado
+        };
+        fetch('http://localhost:3000/clientes', {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/json',
+                        },
+                        body: JSON.stringify(cliente),
+                    })
+        // REDIRECCIONAR A LOGIN
+        window.location.href = 'login.html';
         alert('Usuario registrado exitosamente. Pasa a iniciar sesión.')
+        }
     )
     .catch((error) => {
         console.error('Error:', error)

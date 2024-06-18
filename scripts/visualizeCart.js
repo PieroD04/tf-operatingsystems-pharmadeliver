@@ -19,7 +19,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 <th>Imagen</th>
                 <th>Nombre</th>
                 <th>Cantidad</th>
-                <th>Precio</th>
+                <th>Precio unitario</th>
                 <th></th>
             </tr>
         `;

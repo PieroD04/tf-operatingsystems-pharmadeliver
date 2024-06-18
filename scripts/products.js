@@ -83,6 +83,7 @@ function generateHTML(categories, productsByCategory, pharmacies) {
                 };
             
                 cartInstance.addToCart(productToAdd); // Añade el producto al carrito
+                alert('Producto añadido al carrito');
             });
         });
         
