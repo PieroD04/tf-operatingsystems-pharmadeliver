@@ -1,0 +1,47 @@
+h1{
+    font-size: 3rem;
+    text-align: center;
+    margin-top: 20px;
+}
+
+p{
+    text-align: center;
+    margin-bottom: 10px;
+}
+
+section{
+    margin: 20px 0;
+}
+
+section h2{
+    font-size: 2rem;
+    margin: 20px 0;
+    text-align: center;
+    color: #007488;
+}
+
+.cards {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+}
+
+.card {
+    display: flex;
+    flex-direction: column;
+    flex: 0 1 300px;
+    text-align: center;
+    padding: 20px;
+    border: 1px solid #007488;
+    border-radius: 10px;
+}
+
+.chat-button {
+    background-color: #007488;
+    color: white;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}

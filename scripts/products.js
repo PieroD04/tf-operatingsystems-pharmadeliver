@@ -4,15 +4,18 @@ import cartInstance from "./cart.js";
 async function fetchCategoriesAndProducts() {
     const categoriesUrl = 'http://localhost:3000/categorias';
     const productsUrl = 'http://localhost:3000/productos';
+    const pharmaciesUrl = 'http://localhost:3000/farmacias';
 
     try {
-        const [categoriesResponse, productsResponse] = await Promise.all([
+        const [categoriesResponse, productsResponse, pharmaciesResponse] = await Promise.all([
             fetch(categoriesUrl),
-            fetch(productsUrl)
+            fetch(productsUrl),
+            fetch(pharmaciesUrl)
         ]);
 
         const categories = await categoriesResponse.json();
         const products = await productsResponse.json();
+        const pharmacies = await pharmaciesResponse.json();
 
         // Step 2: Organize Products by Category
         const productsByCategory = products.reduce((acc, product) => {
@@ -22,13 +25,13 @@ async function fetchCategoriesAndProducts() {
         }, {});
 
         // Step 3: Generate HTML
-        generateHTML(categories, productsByCategory);
+        generateHTML(categories, productsByCategory, pharmacies);
     } catch (error) {
         console.error('Error fetching data:', error);
     }
 }
 
-function generateHTML(categories, productsByCategory) {
+function generateHTML(categories, productsByCategory, pharmacies) {
     const mainElement = document.querySelector('catalogo');
     mainElement.innerHTML = '';
 
@@ -45,6 +48,7 @@ function generateHTML(categories, productsByCategory) {
             productCard.innerHTML = `
                 <h3>${product.nombre}</h3>
                 <p>${product.descripcion}</p>
+                <p>Farmacia: ${pharmacies.find(pharmacy => pharmacy.id === product.id_farmacia).nombre}</p>
                 <p>Precio: S/.${product.precio}</p>
                 <img src="${product.imagen}" alt="${product.nombre}">
                 <div class="cart">
@@ -81,6 +85,7 @@ function generateHTML(categories, productsByCategory) {
                 cartInstance.addToCart(productToAdd); // Añade el producto al carrito
             });
         });
+        
 
         categorySection.appendChild(cardsWrapper);
         mainElement.appendChild(categorySection);

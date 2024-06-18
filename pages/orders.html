@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>PharmaDeliver</title>
-    <link rel="stylesheet" href="../styles/catalogue.css">
+    <link rel="stylesheet" href="../styles/orders.css">
     <link rel="stylesheet" href="../styles/global.css">
 </head>
 <body>
@@ -17,18 +17,23 @@
         </div>
         <nav>
             <ul>
+                <li><a id="welcome"></a></li>
                 <li><a href="index.html">Inicio</a></li>
                 <li><a href="catalogue.html">Catalogo</a></li>
                 <li><a href="cart.html">Carrito</a></li>
                 <li><a href="orders.html">Pedidos</a></li>
+                <li><a id="authButton"></a></li>
             </ul>
         </nav>
     </header>
     <main>
-
+        <h1>Historial de Pedidos</h1>
+        <pedidos></pedidos>
     </main>
     <footer>
         <p>&copy; PharmaDeliver 2024 - Todos los derechos reservados</p>
-    </footer>    
+    </footer>
+    <script type="module" src="../scripts/orders.js"></script>
+    <script type="module" src="../scripts/global.js"></script>
 </body>
 </html>

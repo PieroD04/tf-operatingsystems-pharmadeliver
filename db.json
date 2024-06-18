@@ -85,6 +85,53 @@
       "telefono": "+51912348765"
     }
   ],
+  "clientes": [
+    {
+      "id": 1,
+      "id_usuario": 1
+    },
+    {
+      "id": 2,
+      "id_usuario": 2
+    },
+    {
+      "id": 3,
+      "id_usuario": 4
+    }
+  ],
+  "repartidores": [
+    {
+      "id": 1,
+      "licencia": "Q11223344",
+      "id_usuario": 3
+    }
+  ],
+  "farmacias": [
+    {
+      "id": 101,
+      "nombre": "Farmacia Hércules",
+      "hora_aperura": "08:00:00",
+      "hora_cierre": "20:00:00"
+    },
+    {
+      "id": 102,
+      "nombre": "Farmacia López",
+      "hora_aperura": "09:00:00",
+      "hora_cierre": "21:00:00"
+    },
+    {
+      "id": 103,
+      "nombre": "Farmacia San Pablo",
+      "hora_aperura": "08:30:00",
+      "hora_cierre": "20:30:00"
+    },
+    {
+      "id": 104,
+      "nombre": "Farmacia Universal",
+      "hora_aperura": "09:30:00",
+      "hora_cierre": "21:30:00"
+    }
+  ],
   "pedidos": [
     {
       "estado": "Pendiente",
@@ -93,26 +140,44 @@
       "id_cliente": 3,
       "id_repartidor": 1,
       "id": 1
+    },
+    {
+      "estado": "Pendiente",
+      "direccion_entrega": "Av. Surco 291",
+      "fecha_pedido": "2024-06-18T17:33:58.514Z",
+      "id_cliente": 4,
+      "id_repartidor": 1,
+      "id": 2
     }
   ],
   "detalle_pedidos": [
     {
+      "cantidad": 1,
       "id_producto": 2,
       "id_pedido": 1,
       "precio_unitario": 8.75,
       "id": 1
     },
     {
+      "cantidad": 1,
       "id_producto": 1,
       "id_pedido": 1,
       "precio_unitario": 12.5,
       "id": 2
     },
     {
+      "cantidad": 2,
       "id_producto": 3,
       "id_pedido": 1,
       "precio_unitario": 25,
       "id": 3
+    },
+    {
+      "cantidad": 1,
+      "id_producto": 1,
+      "id_pedido": 2,
+      "precio_unitario": 12.5,
+      "id": 4
     }
   ]
 }
