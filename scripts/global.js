@@ -20,6 +20,7 @@ function checkUserStatus() {
             window.location.href = 'login.html';
         };
     }
+
 }
 
 document.addEventListener('DOMContentLoaded', checkUserStatus);

@@ -221,6 +221,14 @@
       "id_cliente": 4,
       "id_repartidor": 2,
       "id": 8
+    },
+    {
+      "estado": "Pendiente",
+      "direccion_entrega": "Algo",
+      "fecha_pedido": "2024-06-19T15:28:03.499Z",
+      "id_cliente": 4,
+      "id_repartidor": 1,
+      "id": 9
     }
   ],
   "detalle_pedidos": [
@@ -342,6 +350,13 @@
       "cantidad": 1,
       "precio_unitario": 8.75,
       "id": 17
+    },
+    {
+      "id_producto": 2,
+      "id_pedido": 9,
+      "cantidad": 1,
+      "precio_unitario": 8.75,
+      "id": 18
     }
   ]
 }

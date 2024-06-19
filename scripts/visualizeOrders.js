@@ -107,6 +107,15 @@ function generatePage(orders, details, products, deliveryMen, users) {
         const chatButton = document.createElement('button');
         chatButton.innerHTML = 'Chat';
         chatButton.className = 'chat-button';
+
+        // Add click event to chat button
+        chatButton.addEventListener('click', function() {
+            // Save repartidor info to localStorage
+            localStorage.setItem('repartidorInfo', JSON.stringify({ nombre: deliveryUsername }));
+            // Redirect to chat.html
+            window.location.href = 'chat.html';
+        });
+
         cardsWrapper.appendChild(chatButton);
 
         orderSection.appendChild(cardsWrapper);
