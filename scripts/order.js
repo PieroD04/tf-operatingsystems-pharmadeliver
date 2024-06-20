@@ -1,3 +1,9 @@
+const ordersUrl = 'http://localhost:3000/pedidos';
+const orderDetailsUrl = 'http://localhost:3000/detalle_pedidos';
+const clientsUrl = 'http://localhost:3000/clientes';
+const deliveryMenUrl = 'http://localhost:3000/repartidores';
+
+
 document.addEventListener('DOMContentLoaded', function() {
     const orderButtonElement = document.querySelector('orderbutton');
 
@@ -22,13 +28,13 @@ document.addEventListener('DOMContentLoaded', function() {
     async function createOrder() {
         const direccionEntrega = prompt("Por favor, ingresa tu dirección de entrega:");
         if (direccionEntrega) {
-            const clientsResponse = await fetch('http://localhost:3000/clientes');
+            const clientsResponse = await fetch(clientsUrl);
             const clients = await clientsResponse.json();
             const userInfo = JSON.parse(localStorage.getItem('userInfo'));
             const clientId = clients.find(client => client.id_usuario === userInfo.id).id;
             
 
-            const deliveryMenResponse = await fetch('http://localhost:3000/repartidores');
+            const deliveryMenResponse = await fetch(deliveryMenUrl);
             const deliveryMen = await deliveryMenResponse.json();
             const deliveryMan = deliveryMen[Math.floor(Math.random() * deliveryMen.length)];
             const deliveryManId = deliveryMan.id;
@@ -41,7 +47,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 id_repartidor: deliveryManId // Asumimos el id del repartidor
             };
 
-            fetch('http://localhost:3000/pedidos', {
+            fetch(ordersUrl, {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
@@ -60,7 +66,7 @@ document.addEventListener('DOMContentLoaded', function() {
                         precio_unitario: producto.precio
                     };
 
-                    fetch('http://localhost:3000/detalle_pedidos', {
+                    fetch(orderDetailsUrl, {
                         method: 'POST',
                         headers: {
                             'Content-Type': 'application/json',

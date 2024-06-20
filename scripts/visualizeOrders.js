@@ -112,6 +112,7 @@ function generatePage(orders, details, products, deliveryMen, users) {
         chatButton.addEventListener('click', function() {
             // Save repartidor info to localStorage
             localStorage.setItem('repartidorInfo', JSON.stringify({ nombre: deliveryUsername }));
+            localStorage.setItem('pedidoId', order.id);
             // Redirect to chat.html
             window.location.href = 'chat.html';
         });

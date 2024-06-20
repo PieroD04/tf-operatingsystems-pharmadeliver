@@ -1,3 +1,6 @@
+const usersURL = 'http://localhost:3000/usuarios';
+const clientsURL = 'http://localhost:3000/clientes';
+
 document.getElementById('registerForm').addEventListener('submit', function(e) {
     e.preventDefault();
 
@@ -27,7 +30,7 @@ document.getElementById('registerForm').addEventListener('submit', function(e) {
         telefono: phone
     };
 
-    fetch('http://localhost:3000/usuarios', {
+    fetch(usersURL, {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json',
@@ -39,7 +42,7 @@ document.getElementById('registerForm').addEventListener('submit', function(e) {
         const cliente = {
             id_usuario: data.id // Asumiendo que el backend devuelve el id del usuario creado
         };
-        fetch('http://localhost:3000/clientes', {
+        fetch(clientsURL, {
                         method: 'POST',
                         headers: {
                             'Content-Type': 'application/json',

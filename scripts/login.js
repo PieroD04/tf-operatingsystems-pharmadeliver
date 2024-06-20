@@ -1,10 +1,12 @@
+const usersUrl = 'http://localhost:3000/usuarios';
+
 document.getElementById('loginForm').addEventListener('submit', function(e) {
     e.preventDefault();
 
     const email = document.getElementById('email').value;
     const password = document.getElementById('password').value;
 
-    fetch('http://localhost:3000/usuarios')
+    fetch(usersUrl)
     .then(response => response.json())
     .then(users => {
         const user = users.find(user => user.correo === email && user.contrasena === password);
