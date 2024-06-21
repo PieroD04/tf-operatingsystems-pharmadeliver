@@ -2,9 +2,9 @@ import cartInstance from "./cart.js";
 
 // Step 1: Fetch Categories and Products
 async function fetchCategoriesAndProducts() {
-    const categoriesUrl = 'http://localhost:3000/categorias';
-    const productsUrl = 'http://localhost:3000/productos';
-    const pharmaciesUrl = 'http://localhost:3000/farmacias';
+    const categoriesUrl = 'http://40.121.143.184:5000/categorias';
+    const productsUrl = 'http://40.121.143.184:5000/productos';
+    const pharmaciesUrl = 'http://40.121.143.184:5000/farmacias';
 
     try {
         const [categoriesResponse, productsResponse, pharmaciesResponse] = await Promise.all([

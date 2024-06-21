@@ -1,5 +1,5 @@
-const usersURL = 'http://localhost:3000/usuarios';
-const clientsURL = 'http://localhost:3000/clientes';
+const usersURL = 'http://40.121.143.184:5000/usuarios';
+const clientsURL = 'http://40.121.143.184:5000/clientes';
 
 document.getElementById('registerForm').addEventListener('submit', function(e) {
     e.preventDefault();

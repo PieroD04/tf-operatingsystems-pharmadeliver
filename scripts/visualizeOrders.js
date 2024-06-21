@@ -1,12 +1,12 @@
 
 // Step 1: Fetch Orders
 async function fetchOrders() {
-    const ordersUrl = 'http://localhost:3000/pedidos';
-    const ordersdetailUrl = 'http://localhost:3000/detalle_pedidos';
-    const productsUrl = 'http://localhost:3000/productos';
-    const clientsUrl = 'http://localhost:3000/clientes';
-    const deliveryMenUrl = 'http://localhost:3000/repartidores';
-    const usersUrl = 'http://localhost:3000/usuarios';
+    const ordersUrl = 'http://40.121.143.184:5000/pedidos';
+    const ordersdetailUrl = 'http://40.121.143.184:5000/detalle_pedidos';
+    const productsUrl = 'http://40.121.143.184:5000/productos';
+    const clientsUrl = 'http://40.121.143.184:5000/clientes';
+    const deliveryMenUrl = 'http://40.121.143.184:5000/repartidores';
+    const usersUrl = 'http://40.121.143.184:5000/usuarios';
 
     try {
         const [ordersResponse, ordersdetailResponse, productsResponse, clientsResponse, deliveryMenResponse, usersResponse] = await Promise.all([

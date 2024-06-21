@@ -1,4 +1,4 @@
-const usersUrl = 'http://localhost:3000/usuarios';
+const usersUrl = 'http://40.121.143.184:5000/usuarios';
 
 document.getElementById('loginForm').addEventListener('submit', function(e) {
     e.preventDefault();

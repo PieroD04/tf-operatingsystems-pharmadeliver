@@ -1,6 +1,6 @@
 let userName = 'Tú';
 let botName = 'Repartidor';
-const messagesUrl = 'http://localhost:3000/mensajes';
+const messagesUrl = 'http://40.121.143.184:5000/mensajes';
 
 // Check if user info is stored in localStorage
 var user = localStorage.getItem('userInfo');
@@ -56,10 +56,11 @@ function sendMessage(sender, messageText) {
     messageDiv.textContent = `${sender}: ${messageText}`;
 
     let message = {
+        id: 0,
         id_pedido: pedidoId,
         contenido: messageText,
-        fecha: new Date().toISOString(),
-        enviado_por_cliente: sender === userName
+        fecha: formatToDatabaseDate(new Date().toISOString()),
+        enviado_por_cliente: sender === userName ? 1 : 0
     };
 
     messageDiv.classList.add(sender === userName ? 'user-message' : 'bot-message');
@@ -105,3 +106,8 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 });
+
+
+function formatToDatabaseDate(isoString) {
+    return isoString.replace('T', ' ').substring(0, 19); // Converts to 'YYYY-MM-DD HH:mm:ss'
+}

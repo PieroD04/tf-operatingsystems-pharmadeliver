@@ -1,7 +1,7 @@
-const ordersUrl = 'http://localhost:3000/pedidos';
-const orderDetailsUrl = 'http://localhost:3000/detalle_pedidos';
-const clientsUrl = 'http://localhost:3000/clientes';
-const deliveryMenUrl = 'http://localhost:3000/repartidores';
+const ordersUrl = 'http://40.121.143.184:5000/pedidos';
+const orderDetailsUrl = 'http://40.121.143.184:5000/detalle_pedidos';
+const clientsUrl = 'http://40.121.143.184:5000/clientes';
+const deliveryMenUrl = 'http://40.121.143.184:5000/repartidores';
 
 
 document.addEventListener('DOMContentLoaded', function() {
@@ -26,6 +26,11 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 
     async function createOrder() {
+        if(!localStorage.getItem('cart')) {
+            alert('No hay productos en el carrito.');
+            return;
+        }
+
         const direccionEntrega = prompt("Por favor, ingresa tu dirección de entrega:");
         if (direccionEntrega) {
             const clientsResponse = await fetch(clientsUrl);
@@ -42,7 +47,7 @@ document.addEventListener('DOMContentLoaded', function() {
             const pedido = {
                 estado: "Pendiente",
                 direccion_entrega: direccionEntrega,
-                fecha_pedido: new Date().toISOString(),
+                fecha_pedido: formatToDatabaseDate(new Date().toISOString()),
                 id_cliente: clientId,
                 id_repartidor: deliveryManId // Asumimos el id del repartidor
             };
@@ -57,11 +62,10 @@ document.addEventListener('DOMContentLoaded', function() {
             .then(response => response.json())
             .then(data => {
                 const carrito = JSON.parse(localStorage.getItem('cart') || '[]');
-                console.log()
                 carrito.forEach(producto => {
                     const detallePedido = {
                         id_producto: producto.id,
-                        id_pedido: data.id, // Asumiendo que el backend devuelve el id del pedido creado
+                        id_pedido: data.pedido.id, 
                         cantidad: producto.quantity,
                         precio_unitario: producto.precio
                     };
@@ -88,3 +92,7 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     }
 });
+
+function formatToDatabaseDate(isoString) {
+    return isoString.replace('T', ' ').substring(0, 19); // Converts to 'YYYY-MM-DD HH:mm:ss'
+}
